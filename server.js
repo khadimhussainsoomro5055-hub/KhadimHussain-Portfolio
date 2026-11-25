@@ -31,7 +31,7 @@ app.post('/api/contact', (req, res) => {
   if (name.length > 100 || email.length > 254 || message.length > 5000) {
     return res.status(400).json({ error: 'One or more fields are too long.' });
   }
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ error: 'Please enter a valid email address.' });
   }
 
