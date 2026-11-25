@@ -1,0 +1,24 @@
+const express = require('express');
+const path = require('path');
+const fs = require('fs');
+const app = express();
+const PORT = process.env.PORT || 3000;
+const messagesFile = path.join(__dirname, 'data', 'messages.json');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.get('/', (_req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+app.post('/api/contact', (req, res) => {
+  const name = String(req.body.name || '').trim();
+  const email = String(req.body.email || '').trim();
+  const message = String(req.body.message || '').trim();
+  if (!name || !email || !message) return res.status(400).json({ error: 'Please complete all fields.' });
+  if (name.length > 100 || email.length > 254 || message.length > 5000) return res.status(400).json({ error: 'One or more fields are too long.' });
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Please enter a valid email.' });
+  fs.mkdirSync(path.dirname(messagesFile), { recursive: true });
+  const entries = fs.existsSync(messagesFile) ? JSON.parse(fs.readFileSync(messagesFile, 'utf8')) : [];
+  entries.push({ name, email, message, receivedAt: new Date().toISOString() });
+  fs.writeFileSync(messagesFile, JSON.stringify(entries, null, 2));
+  res.status(201).json({ success: true, message: 'Message received.' });
+});
+app.listen(PORT, () => console.log('Portfolio running at http://localhost:' + PORT));
