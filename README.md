@@ -1,6 +1,6 @@
-# Khadim Hussain — Portfolio
+# Khadim Hussain — Personal Portfolio
 
-A responsive portfolio built with plain HTML, CSS, vanilla JavaScript, Node.js and Express.
+A responsive personal portfolio built with HTML, CSS, vanilla JavaScript, Node.js, and Express.
 
 ## Run locally
 
@@ -11,11 +11,21 @@ npm start
 
 Open http://localhost:3000.
 
-## Structure
-- `index.html` — portfolio page
-- `public/style.css` — responsive styling
-- `public/js/main.js` — navigation, project filters and contact form
-- `server.js` — Express server and contact API
-- `data/messages.json` — created automatically on form submission and ignored by Git
+## Features
+- Responsive portfolio layout and mobile navigation
+- Project cards covering web, Java, JavaScript, Python/AI, desktop, and database work
+- Project category filters
+- Contact form backed by an Express API
+- Contact messages saved locally in `data/messages.json`
 
-Replace the placeholder email and LinkedIn URL before publishing. Contact messages are stored locally; configure a database or email service for production.
+## Personal details
+- Email: khadimhussainsoomro5055@gmail.com
+- University: Sukkur IBA University
+
+## Profile photo
+Place the supplied portrait at `public/images/profile.jpg`.
+
+## Stack
+- HTML5 and CSS3
+- Vanilla JavaScript
+- Node.js and Express
