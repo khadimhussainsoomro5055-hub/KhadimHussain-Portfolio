@@ -3,7 +3,8 @@ const navLinks = document.getElementById('navLinks');
 
 menuToggle?.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('nav-open');
-  menuToggle.textContent = isOpen ? '×' : '☰';
+  menuToggle.innerHTML = isOpen ? '<i data-lucide="x" aria-hidden="true"></i>' : '<i data-lucide="menu" aria-hidden="true"></i>';
+  window.lucide?.createIcons();
   menuToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
@@ -11,7 +12,10 @@ navLinks?.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('nav-open');
     menuToggle?.setAttribute('aria-expanded', 'false');
-    if (menuToggle) menuToggle.textContent = '☰';
+    if (menuToggle) {
+      menuToggle.innerHTML = '<i data-lucide="menu" aria-hidden="true"></i>';
+      window.lucide?.createIcons();
+    }
   });
 });
 
@@ -72,4 +76,9 @@ contactForm?.addEventListener('submit', async event => {
   } finally {
     button.disabled = false;
   }
+});
+
+// Replace Lucide placeholders with accessible inline SVG icons.
+window.addEventListener('DOMContentLoaded', () => {
+  window.lucide?.createIcons();
 });
