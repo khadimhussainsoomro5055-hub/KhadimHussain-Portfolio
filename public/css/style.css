@@ -20,12 +20,14 @@
 }
 
 html {
+  overflow-x:clip;
   scroll-behavior:smooth;
   scroll-padding-top:92px
 }
 
 body {
   margin:0;
+  overflow-x:clip;
   background:var(--bg);
   color:var(--ink);
   font-family:'DM Sans',Arial,sans-serif;
@@ -46,7 +48,7 @@ button,input,textarea {
   max-width:1440px;
   margin:auto;
   padding:0 clamp(22px,6vw,92px);
-  overflow:hidden;
+  overflow-x:clip;
   background:radial-gradient(circle at 92% 4%,rgba(8,127,140,.07),transparent 24%),var(--bg)
 }
 
@@ -302,11 +304,11 @@ h1 em,h2 em {
 .profile-photo {
   display:block;
   width:min(360px,78vw);
-  height:auto;
-  aspect-ratio:1/1;
+  height:450px;
+  aspect-ratio:4/5;
   object-fit:cover;
-  object-position:center 18%;
-  border-radius:50%;
+  object-position:center 22%;
+  border-radius:20px;
   border:8px solid #fff;
   outline:1px solid var(--line);
   box-shadow:0 24px 65px rgba(28,54,70,.16)
@@ -506,14 +508,20 @@ h1 em,h2 em {
 }
 
 .skill-icon {
-  width:40px;
-  height:40px;
+  width:44px;
+  height:44px;
   border:1px solid #cde5e6;
   display:grid;
   place-items:center;
   border-radius:10px;
   color:var(--accent);
   background:#f1f9f9
+}
+
+.skill-icon svg {
+  width:21px;
+  height:21px;
+  stroke-width:1.8
 }
 
 .skill-index {
@@ -1163,7 +1171,7 @@ h1 {
 .profile-photo {
   width:min(290px,76vw);
   height:auto;
-  aspect-ratio:1/1
+  aspect-ratio:4/5
 }
 
 .hero-bottomline {
@@ -1357,4 +1365,23 @@ h1 {
   animation:none!important
 }
 
+}
+
+
+/* Prevent accidental viewport-level horizontal scrolling. */
+html, body {
+  max-width:100%;
+  overflow-x:clip;
+}
+
+.site-shell {
+  width:100%;
+}
+
+@media (max-width:680px) {
+  .profile-photo {
+    height:auto;
+    max-height:390px;
+    object-position:center 22%;
+  }
 }
