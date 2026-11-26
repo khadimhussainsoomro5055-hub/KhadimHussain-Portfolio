@@ -1511,3 +1511,44 @@ html, body {
 .education-card-brand strong {font-size:19px}
 }
 .tech-tag img {width:14px;height:14px;object-fit:contain;filter:grayscale(1) brightness(.55)}
+
+
+/* Devicon font icons: stable dimensions and consistent chip alignment. */
+.tech-tag {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  white-space:nowrap;
+}
+.tech-tag i[class^="devicon-"],.tech-tag i[class*=" devicon-"] {
+  display:inline-block;
+  width:15px;
+  min-width:15px;
+  font-size:15px;
+  line-height:1;
+  text-align:center;
+  font-style:normal;
+}
+.tech-tag i[data-lucide],.tech-tag .tech-fallback {
+  width:14px;
+  min-width:14px;
+  height:14px;
+  color:var(--accent);
+  stroke-width:1.8;
+}
+.tech-tag .tech-fallback {
+  display:inline-grid;
+  place-items:center;
+  font-size:14px;
+}
+.tech-tag>span {
+  line-height:1.2;
+}
+@media(max-width:680px) {
+  .tech-tag i[class^="devicon-"],.tech-tag i[class*=" devicon-"] {
+    width:13px;
+    min-width:13px;
+    font-size:13px;
+  }
+}
