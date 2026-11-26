@@ -1579,3 +1579,33 @@ html, body {
   animation:none !important;
   transform:none !important;
 }
+
+
+/* Solid section backgrounds for clear, flat visual separation. */
+.topbar,
+.hero,
+.skills-section,
+.services-section,
+.contact-section {
+  background-color:#ffffff;
+}
+.intro-grid,
+.projects-section,
+.education-section {
+  background-color:#edf2f5;
+}
+.footer {
+  background-color:#f1f4f6;
+}
+
+/* Keep section backgrounds visible while preserving the existing layout. */
+.hero,
+.intro-grid,
+.skills-section,
+.projects-section,
+.services-section,
+.education-section,
+.contact-section,
+.footer {
+  background-image:none !important;
+}
