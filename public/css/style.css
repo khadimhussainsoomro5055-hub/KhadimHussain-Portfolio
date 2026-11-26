@@ -1990,3 +1990,82 @@ button:disabled {opacity:.65}
   transform:none !important;
   background-image:none !important;
 }
+
+
+/* Full-width page background and consistent section canvas. */
+html, body {
+  width:100%;
+  min-height:100%;
+  margin:0;
+  background:#f4f6f8 !important;
+}
+.site-shell {
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:0;
+  background:#f4f6f8 !important;
+  overflow-x:clip;
+}
+
+/* Each section spans the viewport; content stays centered and aligned. */
+.topbar,
+.hero,
+.intro-grid,
+.skills-section,
+.projects-section,
+.services-section,
+.education-section,
+.contact-section,
+.footer {
+  width:100%;
+  padding-left:max(24px, calc((100vw - 1180px) / 2));
+  padding-right:max(24px, calc((100vw - 1180px) / 2));
+  background-image:none !important;
+  background-color:#ffffff;
+}
+
+/* Alternating solid neutral surfaces create clear section separation. */
+.intro-grid,
+.projects-section,
+.education-section,
+.footer {
+  background-color:#edf2f5 !important;
+}
+.topbar,
+.hero,
+.skills-section,
+.services-section,
+.contact-section {
+  background-color:#ffffff !important;
+}
+
+/* Maintain mobile gutters without exposing mismatched page edges. */
+@media(max-width:680px) {
+  .topbar,
+  .hero,
+  .intro-grid,
+  .skills-section,
+  .projects-section,
+  .services-section,
+  .education-section,
+  .contact-section,
+  .footer {
+    padding-left:18px;
+    padding-right:18px;
+  }
+}
+@media(max-width:390px) {
+  .topbar,
+  .hero,
+  .intro-grid,
+  .skills-section,
+  .projects-section,
+  .services-section,
+  .education-section,
+  .contact-section,
+  .footer {
+    padding-left:15px;
+    padding-right:15px;
+  }
+}
