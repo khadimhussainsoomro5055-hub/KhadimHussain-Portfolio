@@ -9,7 +9,9 @@
     "dev": "node --watch server.js"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "nodemailer": "^7.0.10"
   },
   "repository": {
     "type": "git",
