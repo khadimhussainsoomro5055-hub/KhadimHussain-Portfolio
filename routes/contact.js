@@ -24,7 +24,9 @@ function validateMessage({ name, email, message }) {
   if (!name || !email || !message) return 'Please complete all fields.';
   if (name.length > 100 || email.length > 254 || message.length > 5000) return 'One or more fields are too long.';
   if ([...name].some(char => char.charCodeAt(0) < 32 || char.charCodeAt(0) === 127)) return 'Please enter a valid name.';
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) return 'Please enter a valid email address.';
+  const atIndex = email.indexOf('@');
+  const domain = email.slice(atIndex + 1);
+  if (atIndex < 1 || atIndex !== email.lastIndexOf('@') || /\s/.test(email) || !domain.includes('.') || domain.startsWith('.') || domain.endsWith('.')) return 'Please enter a valid email address.';
   return null;
 }
 
