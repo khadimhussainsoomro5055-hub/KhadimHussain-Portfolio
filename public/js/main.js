@@ -19,6 +19,18 @@ navLinks?.querySelectorAll('a').forEach(link => {
   });
 });
 
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && navLinks?.classList.contains('nav-open')) {
+    navLinks.classList.remove('nav-open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    if (menuToggle) {
+      menuToggle.innerHTML = '<i data-lucide="menu" aria-hidden="true"></i>';
+      window.lucide?.createIcons();
+      menuToggle.focus();
+    }
+  }
+});
+
 const filterButtons = document.querySelectorAll('[data-filter]');
 const projectCards = document.querySelectorAll('.project-card');
 const projectCount = document.getElementById('projectCount');
@@ -58,6 +70,7 @@ contactForm?.addEventListener('submit', async event => {
   if (!button || !status) return;
 
   button.disabled = true;
+  contactForm.setAttribute('aria-busy', 'true');
   status.textContent = 'Sending your message...';
   try {
     // Express urlencoded middleware parses URLSearchParams (unlike multipart FormData).
@@ -67,7 +80,7 @@ contactForm?.addEventListener('submit', async event => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
       body: payload.toString()
     });
-    const result = await response.json();
+    const result = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(result.error || 'Unable to send message.');
     status.textContent = 'Thank you! Your message has been received.';
     contactForm.reset();
@@ -75,6 +88,7 @@ contactForm?.addEventListener('submit', async event => {
     status.textContent = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
   } finally {
     button.disabled = false;
+    contactForm.removeAttribute('aria-busy');
   }
 });
 
