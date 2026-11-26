@@ -82,7 +82,7 @@ contactForm?.addEventListener('submit', async event => {
     });
     const result = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(result.error || 'Unable to send message.');
-    status.textContent = 'Thank you! Your message has been received.';
+    status.textContent = result.message || 'Thank you! Your message has been sent.';
     contactForm.reset();
   } catch (error) {
     status.textContent = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
