@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const contactRoutes = require('./routes/contact');
@@ -23,8 +25,12 @@ app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 app.use('/api/contact', contactRoutes);
 app.use((_req, res) => res.status(404).send('Page not found.'));
 app.use((error, _req, res, _next) => {
-  if (error && error.type === 'entity.too.large') return res.status(413).json({ error: 'The submitted message is too large.' });
-  if (error instanceof SyntaxError && 'body' in error) return res.status(400).json({ error: 'Invalid request body.' });
+  if (error && error.type === 'entity.too.large') {
+    return res.status(413).json({ error: 'The submitted message is too large.' });
+  }
+  if (error instanceof SyntaxError && 'body' in error) {
+    return res.status(400).json({ error: 'Invalid request body.' });
+  }
   console.error('Unhandled request error:', error);
   return res.status(500).json({ error: 'An unexpected server error occurred.' });
 });
