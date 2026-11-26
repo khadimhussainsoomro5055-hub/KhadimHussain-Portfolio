@@ -1552,3 +1552,13 @@ html, body {
     font-size:13px;
   }
 }
+
+
+/* Keep education cards clean without the timeline rail beside them. */
+.education-timeline {
+  padding-left:0;
+}
+.education-timeline::before,
+.education-card::before {
+  display:none;
+}
