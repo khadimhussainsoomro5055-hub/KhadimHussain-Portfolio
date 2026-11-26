@@ -1422,3 +1422,55 @@ html, body {
     object-position:center 22%;
   }
 }
+
+
+/* Icon-led social links and technology chips. */
+.social-row .social-link {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#526674;
+  font-size:12px;
+  font-weight:700;
+  transition:color .2s,transform .2s;
+}
+.social-row .social-link:hover {
+  color:var(--accent);
+  transform:translateY(-2px);
+}
+.social-link svg {
+  width:16px;
+  height:16px;
+  stroke-width:1.9;
+}
+.skill-tags .tech-tag,.project-stack .tech-tag {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  min-height:29px;
+  padding:5px 8px;
+  border-radius:6px;
+}
+.tech-tag img,.tech-tag svg {
+  display:block;
+  width:13px;
+  height:13px;
+  flex:0 0 13px;
+  object-fit:contain;
+}
+.tech-tag svg {
+  color:var(--accent);
+  stroke-width:1.9;
+}
+.tech-tag>span {
+  display:inline;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:inherit;
+  font-size:inherit;
+}
+@media(max-width:680px) {
+  .social-row .social-link {gap:5px;font-size:11px}
+  .tech-tag img,.tech-tag svg {width:12px;height:12px;flex-basis:12px}
+}
