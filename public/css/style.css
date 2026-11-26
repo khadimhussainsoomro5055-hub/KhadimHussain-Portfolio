@@ -1609,3 +1609,384 @@ html, body {
 .footer {
   background-image:none !important;
 }
+
+
+/* ---------------------------------------------------------
+   Portfolio refinement: consistent spacing, hierarchy and
+   responsive alignment. Flat colors only; no gradients,
+   shadows, blur, filters or animated effects.
+---------------------------------------------------------- */
+:root {
+  --bg:#f3f6f8;
+  --surface:#ffffff;
+  --surface-soft:#eaf0f3;
+  --ink:#172b3a;
+  --muted:#607381;
+  --line:#d8e1e7;
+  --accent:#087f8c;
+  --accent-dark:#06636d;
+  --accent-soft:#e4f1f2;
+  --radius:16px;
+}
+
+body {
+  background:#f3f6f8;
+  color:var(--ink);
+  line-height:1.7;
+}
+
+.site-shell {
+  max-width:1320px;
+  padding:0 clamp(20px,5vw,72px);
+  background:#f3f6f8;
+}
+
+.topbar {
+  min-height:82px;
+  height:auto;
+  gap:24px;
+  background:#ffffff;
+  border-bottom:1px solid var(--line);
+}
+
+.signature {
+  font-size:23px;
+  letter-spacing:-1.1px;
+  white-space:nowrap;
+}
+
+.nav-links {gap:clamp(16px,2.4vw,32px)}
+.nav-links a {font-size:13px;color:#526674}
+.nav-cta {background:var(--accent);border-radius:7px;padding:11px 17px}
+.nav-cta:hover {background:var(--accent-dark)}
+
+.hero {
+  min-height:610px;
+  grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr);
+  gap:clamp(28px,5vw,70px);
+  padding:76px 0 100px;
+  background:#ffffff;
+}
+.hero-copy {max-width:650px}
+.eyebrow,.section-label {font-size:10px;letter-spacing:1.5px}
+h1 {
+  max-width:720px;
+  font-size:clamp(48px,6vw,76px);
+  line-height:1.08;
+  letter-spacing:-3.8px;
+  margin:23px 0 20px;
+}
+h1 em,h2 em {color:var(--accent);letter-spacing:-1.4px}
+.hero-description {font-size:15px;line-height:1.85;max-width:550px}
+.hero-actions {gap:22px;margin-top:28px}
+.button {border-radius:7px;padding:13px 19px}
+.button-gold {background:var(--accent);color:#fff}
+.button-gold:hover {background:var(--accent-dark)}
+.text-link {font-size:13px}
+.social-row {gap:18px;margin-top:38px}
+.hero-visual {height:auto;min-height:380px}
+.profile-visual {gap:17px}
+.profile-photo {
+  width:min(330px,100%);
+  border:6px solid #ffffff;
+  outline:1px solid var(--line);
+  object-position:center 18%;
+}
+.photo-caption {font-size:10px;letter-spacing:1.7px}
+.hero-bottomline {bottom:24px}
+
+.intro-grid {
+  grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);
+  gap:18px;
+  padding:64px 0 76px;
+  background:#edf2f5;
+}
+.panel {
+  height:100%;
+  padding:clamp(24px,3vw,36px);
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#ffffff;
+}
+.panel h2,.section-heading h2 {
+  font-size:clamp(27px,3vw,38px);
+  line-height:1.2;
+  letter-spacing:-1.4px;
+}
+.panel p {font-size:13px;line-height:1.85}
+.fact-list div {padding:12px 0;font-size:12px}
+.fact-list b {max-width:62%;overflow-wrap:anywhere}
+.stats-row {padding-top:18px;border-top:1px solid var(--line)}
+.stats-row b {font-size:25px}
+
+.skills-section,.projects-section,.services-section,.education-section {
+  padding:76px 0 82px;
+}
+.skills-section,.services-section {background:#ffffff}
+.projects-section,.education-section {background:#edf2f5}
+.section-heading {
+  align-items:end;
+  margin-bottom:30px;
+}
+.section-heading>p {max-width:390px;font-size:13px;line-height:1.8}
+.section-label {gap:9px}
+.section-label span {width:20px}
+.skills-grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.skill-card {
+  height:100%;
+  min-width:0;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#ffffff;
+}
+.skill-card h3 {font-size:15px;margin:16px 0 13px}
+.skill-icon {width:42px;height:42px;border-radius:9px;background:#edf5f6}
+.skill-tags {gap:7px}
+.skill-tags span,.project-stack span {
+  background:#f1f4f6;
+  border:1px solid #e1e8ec;
+  color:#435866;
+  border-radius:5px;
+  font-size:10px;
+  padding:6px 8px;
+}
+.tech-tag {white-space:normal;overflow-wrap:anywhere}
+
+.projects-section {border-top:1px solid var(--line)}
+.project-toolbar {
+  margin:25px 0 18px;
+  align-items:center;
+}
+.filters {gap:7px}
+.filter {
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:7px 11px;
+  background:#ffffff;
+  color:#526674;
+}
+.filter.active,.filter:hover {
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#ffffff;
+}
+.projects-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.project-card {
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  height:100%;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#ffffff;
+}
+.project-art {height:168px}
+.art-window {width:76%;height:72%;border-radius:6px}
+.project-info {
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  padding:20px;
+}
+.project-info h3 {font-size:16px;line-height:1.35}
+.project-info p {font-size:12px;line-height:1.75;min-height:74px}
+.project-stack {margin-top:auto;padding-top:12px}
+.project-title-row>a {border-radius:7px}
+.project-title-row>a:hover {background:var(--accent);color:#ffffff}
+
+.services-section {border-top:1px solid var(--line)}
+.services-grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.service-card {
+  min-width:0;
+  min-height:190px;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#ffffff;
+}
+.service-card h3 {font-size:14px}
+.service-card p {font-size:12px;line-height:1.75}
+
+.education-section {border-top:1px solid var(--line)}
+.education-timeline {display:grid;gap:15px}
+.education-card {
+  grid-template-columns:54px minmax(0,1fr) 108px;
+  gap:20px;
+  padding:25px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#ffffff;
+}
+.education-card-icon {width:50px;height:50px;border-radius:10px;background:#edf5f6}
+.education-card h3 {font-size:clamp(17px,2vw,22px)}
+.education-card h4 {font-size:14px}
+.education-card-content>p {font-size:12px;line-height:1.8}
+.education-card-brand {background:#edf5f6;border-radius:9px}
+
+.contact-section {
+  grid-template-columns:minmax(0,1fr) minmax(320px,.85fr);
+  gap:clamp(35px,7vw,90px);
+  align-items:center;
+  padding:76px 0 82px;
+  background:#ffffff;
+}
+.contact-copy h2 {
+  font-size:clamp(38px,4.7vw,58px);
+  line-height:1.1;
+  letter-spacing:-2.5px;
+}
+.contact-copy>p {font-size:13px;line-height:1.85}
+.contact-email {overflow-wrap:anywhere;font-size:12px}
+.contact-form {
+  gap:15px;
+  padding:26px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#f7f9fa;
+}
+.contact-form label {font-size:12px}
+.contact-form input,.contact-form textarea {
+  padding:12px 13px;
+  border-radius:6px;
+  background:#ffffff;
+  font-size:13px;
+}
+.contact-form textarea {min-height:120px}
+.contact-form input:focus,.contact-form textarea:focus {
+  border-color:var(--accent);
+  outline:2px solid var(--accent-soft);
+  outline-offset:1px;
+}
+.contact-form small {line-height:1.6}
+
+.footer {
+  min-height:94px;
+  flex-wrap:wrap;
+  padding:20px 0;
+  background:#edf2f5;
+  border-top:1px solid var(--line);
+}
+.footer .signature {font-size:21px}
+.footer p {margin:0}
+.footer-socials {gap:15px}
+.copyright {white-space:nowrap}
+
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible {
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+button:disabled {opacity:.65}
+
+/* Tablet */
+@media(max-width:1050px) {
+  .site-shell {padding:0 4%}
+  .hero {min-height:560px;gap:28px}
+  .skills-grid,.services-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .projects-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project-card:last-child {grid-column:auto}
+  .project-card:last-child .project-art {height:168px}
+  .intro-grid {grid-template-columns:minmax(0,1fr) minmax(260px,.85fr)}
+}
+
+/* Mobile */
+@media(max-width:680px) {
+  .site-shell {padding:0 18px}
+  .topbar {min-height:70px;gap:10px}
+  .signature {font-size:20px;letter-spacing:-.8px}
+  .nav-cta {padding:9px 11px;font-size:11px;margin-right:8px}
+  .mobile-menu {font-size:22px}
+  .nav-links {
+    left:-18px;right:-18px;top:69px;
+    padding:20px 24px;
+    background:#ffffff;
+    border-bottom:1px solid var(--line);
+  }
+  .hero {
+    grid-template-columns:1fr;
+    min-height:0;
+    gap:28px;
+    padding:52px 0 76px;
+  }
+  h1 {font-size:clamp(43px,11vw,60px);letter-spacing:-2.7px}
+  .hero-description {font-size:14px}
+  .hero-visual {min-height:0;margin:0}
+  .profile-photo {width:min(260px,74vw)}
+  .hero-bottomline {bottom:23px}
+  .intro-grid {
+    grid-template-columns:1fr;
+    gap:13px;
+    padding:42px 0 48px;
+  }
+  .panel {padding:23px}
+  .panel h2,.section-heading h2 {font-size:28px}
+  .skills-section,.projects-section,.services-section,.education-section {
+    padding:52px 0 56px;
+  }
+  .section-heading {display:block;margin-bottom:23px}
+  .section-heading>p {margin-top:12px}
+  .skills-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .skill-card {padding:15px}
+  .skill-card h3 {font-size:13px}
+  .skill-tags span {font-size:9px;padding:5px 6px}
+  .project-toolbar {align-items:flex-start;flex-direction:column;gap:12px}
+  .filters {justify-content:flex-start}
+  .filter {font-size:10px;padding:7px 9px}
+  .projects-grid {grid-template-columns:1fr;gap:13px}
+  .project-art {height:175px}
+  .project-info {padding:18px}
+  .project-info p {min-height:0}
+  .services-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .service-card {min-height:185px;padding:16px}
+  .education-timeline {gap:12px}
+  .education-card {
+    grid-template-columns:42px minmax(0,1fr);
+    gap:12px;
+    padding:17px;
+  }
+  .education-card-icon {width:40px;height:40px}
+  .education-card-brand {grid-column:2}
+  .education-card h3 {font-size:17px;overflow-wrap:anywhere}
+  .education-card h4 {font-size:13px}
+  .education-card-top {gap:7px}
+  .education-status,.education-period {font-size:8px}
+  .education-details {gap:8px 12px}
+  .contact-section {
+    grid-template-columns:1fr;
+    gap:25px;
+    padding:52px 0 55px;
+  }
+  .contact-copy h2 {font-size:clamp(39px,10vw,49px)}
+  .contact-form {padding:20px}
+  .footer {gap:13px;padding:22px 0}
+  .footer p {order:3;width:100%;font-size:10px}
+  .footer-socials {margin-left:auto}
+  .copyright {font-size:8px}
+}
+
+/* Narrow phones */
+@media(max-width:390px) {
+  .site-shell {padding:0 15px}
+  .nav-cta {font-size:10px;padding:8px 9px}
+  .signature {font-size:18px}
+  .skills-grid,.services-grid {grid-template-columns:1fr}
+  .hero-actions {align-items:flex-start;flex-direction:column;gap:14px}
+  .fact-list div {align-items:flex-start}
+  .fact-list b {max-width:60%}
+  .education-card {grid-template-columns:1fr}
+  .education-card-icon {display:none}
+  .education-card-brand {grid-column:1}
+  .footer-socials {gap:10px}
+}
+
+/* Explicitly keep the design flat and static. */
+*,*::before,*::after {
+  box-shadow:none !important;
+  filter:none !important;
+  backdrop-filter:none !important;
+  text-shadow:none !important;
+  transition:none !important;
+  animation:none !important;
+  transform:none !important;
+  background-image:none !important;
+}
